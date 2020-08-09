@@ -10,29 +10,34 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class BoardComponent implements OnInit {
 
   constructor(public board: BoardService, private snackBar: MatSnackBar) { }
-  
+  public gameGoing = false;
   ngOnInit(): void {
     this.initBoard();
     console.log(this.board.board);
   }
   public spaceClick(space: space){
-    console.log("RAWR");
-    space.clicked = true;
-    console.log(space);
-    if(space.mine == true){
-      console.log("You ded m8");
-      let snackbarRef = this.snackBar.open("You have lost", 'Reset');
-      snackbarRef.onAction().subscribe(() => {
-        this.initBoard();
-      });
-    }else{
-      this.board.click(space);
+    if(this.gameGoing){
+      console.log("RAWR");
+      space.clicked = true;
+      console.log(space);
+      if(space.mine == true){
+        console.log("You ded m8");
+        let snackbarRef = this.snackBar.open("You have lost", 'Reset');
+        this.gameGoing = false;
+        snackbarRef.onAction().subscribe(() => {
+          this.initBoard();
+        });
+      }else{
+        this.board.click(space);
+      }
     }
   }
   public showFlag(space: space){
-    console.log(space);
-    space.flag = !space.flag;
-    return false;
+    if(this.gameGoing){
+      console.log(space);
+      space.flag = !space.flag;
+      return false;
+    }
   }
   public stop(){
     return false;
@@ -42,5 +47,6 @@ export class BoardComponent implements OnInit {
   }
   public initBoard(){
     this.board.initBoard(30,30,150);
+    this.gameGoing = true;
   }
 }
