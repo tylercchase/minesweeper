@@ -58,7 +58,6 @@ export class BoardService {
                   space.surronding++;
                 }
               }
-              
             } 
           }
         }
@@ -80,5 +79,15 @@ export class BoardService {
         }
       }
     }
+  }
+
+  public loseSequence(){
+    this.board.forEach((col, x) => {
+      col.forEach((row,y) => {
+        if(this.board[x][y].mine){
+          this.board[x][y].clicked = true;
+        }
+      });
+    });
   }
 }

@@ -19,9 +19,9 @@ export class BoardComponent implements OnInit {
     if(this.gameGoing){
       space.clicked = true;
       if(space.mine == true){
-        console.log("You ded m8");
         let snackbarRef = this.snackBar.open("Get rkt m8", 'Reset');
         this.gameGoing = false;
+        this.board.loseSequence();
         snackbarRef.onAction().subscribe(() => {
           this.initBoard();
         });
