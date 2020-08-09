@@ -1,0 +1,15 @@
+<div class="board" (contextmenu)="stop();">
+    <div *ngFor="let column of this.board.board" class="column" >
+        <div *ngFor="let space of column" class="row" [ngClass]="{'unselected': !space.clicked, 'flag': space.flag}" >
+            
+            <div *ngIf="space.clicked">
+                <div *ngIf="space.mine"><img src="assets/mine.svg"></div>
+                <div *ngIf="!space.mine">{{space.surronding}}</div>
+            </div>
+            <div (click)="spaceClick(space);" *ngIf="!space.clicked" class="help" (contextmenu)="showFlag(space);">
+            
+            </div>
+        </div>
+    </div>
+</div>
+<button (click)="showBoard();">show board</button>

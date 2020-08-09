@@ -1,0 +1,29 @@
+.board{
+    display: flex;
+    background: #efefef;
+
+}
+.row {
+    border: black 1px solid;
+    height: 2vh;
+    width: 2vw;
+    display: grid;
+    place-content: center;
+}
+.unselected {
+    background: #989898;
+    cursor: pointer;
+
+}
+.help {
+    width: 2vh;
+    height: 2vw;
+    z-index: 100000000000;
+}
+img {
+    width: 2vw;
+    height: 2vh;
+}
+.flag {
+    content: url("../../assets/flag.svg") !important;
+}
