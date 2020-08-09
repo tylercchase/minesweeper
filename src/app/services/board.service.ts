@@ -56,17 +56,29 @@ export class BoardService {
               else{
                 if(this.board[space.x + x][space.y + y].mine){
                   space.surronding++;
-                }else if(this.board[space.x + x][space.y + y].clicked == false && this.board[space.x + x][space.y + y].surronding == 0 && space.surronding == 0){
-                  this.board[space.x + x][space.y + y].clicked = true;
-                  this.board[space.x + x][space.y + y].flag = false;
-                  
-                  this.click(this.board[space.x + x][space.y + y]);
                 }
               }
               
             } 
           }
         }
+    }
+    for(let x = -1; x < 2; x++){
+      for(let y = -1; y < 2; y++){
+        if(this.board[space.x + x]){
+          if(this.board[space.x + x][space.y + y]){
+            if(x == 0 && y == 0){} 
+            else{
+              if(this.board[space.x + x][space.y + y].clicked == false && this.board[space.x + x][space.y + y].surronding == 0 && space.surronding == 0 && !this.board[space.x + x][space.y + y].mine){
+                this.board[space.x + x][space.y + y].clicked = true;
+                this.board[space.x + x][space.y + y].flag = false;
+                
+                this.click(this.board[space.x + x][space.y + y]);
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
