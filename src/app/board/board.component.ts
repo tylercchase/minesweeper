@@ -17,12 +17,10 @@ export class BoardComponent implements OnInit {
   }
   public spaceClick(space: space){
     if(this.gameGoing){
-      console.log("RAWR");
       space.clicked = true;
-      console.log(space);
       if(space.mine == true){
         console.log("You ded m8");
-        let snackbarRef = this.snackBar.open("You have lost", 'Reset');
+        let snackbarRef = this.snackBar.open("Get rkt m8", 'Reset');
         this.gameGoing = false;
         snackbarRef.onAction().subscribe(() => {
           this.initBoard();
