@@ -18,6 +18,7 @@ export class BoardComponent implements OnInit {
   public spaceClick(space: space){
     if(this.gameGoing){
       space.clicked = true;
+      space.flag = false;
       if(space.mine == true){
         let snackbarRef = this.snackBar.open("Get rkt m8", 'Reset');
         this.gameGoing = false;
