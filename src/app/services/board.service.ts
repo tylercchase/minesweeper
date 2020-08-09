@@ -9,6 +9,7 @@ export class BoardService {
   constructor() { }
   
   public initBoard( x: number,  y: number,  bombs: number){
+    this.board = [];
     let tempBombs = 0;
        for( let xaxis = 0; xaxis < x; xaxis++){
           let tempArray = [];
@@ -25,6 +26,8 @@ export class BoardService {
           }
           this.board.push(tempArray);
         }
+        this.shuffleMultiArray();
+        this.shuffleMultiArray();
         this.shuffleMultiArray();
         
         this.board.forEach((column, x) => {
@@ -45,7 +48,6 @@ export class BoardService {
             this.board[i1][j1] = temp;
         }
     }
-
 }
   public click(space: space){
     for(let x = -1; x < 2; x++){

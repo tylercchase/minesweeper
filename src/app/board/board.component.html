@@ -4,7 +4,7 @@
             
             <div *ngIf="space.clicked">
                 <div *ngIf="space.mine"><img src="assets/mine.svg"></div>
-                <div *ngIf="!space.mine">{{space.surronding}}</div>
+                <div *ngIf="!space.mine">{{(space.surronding == 0)? "": space.surronding}}</div>
             </div>
             <div (click)="spaceClick(space);" *ngIf="!space.clicked" class="help" (contextmenu)="showFlag(space);">
             
