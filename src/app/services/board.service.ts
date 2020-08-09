@@ -11,31 +11,29 @@ export class BoardService {
   public initBoard( x: number,  y: number,  bombs: number){
     this.board = [];
     let tempBombs = 0;
-       for( let xaxis = 0; xaxis < x; xaxis++){
-          let tempArray = [];
-          for(let yaxis = 0; yaxis < y; yaxis++){
-            let tempSpace = new space();
-            if(tempBombs !== bombs){
-                tempBombs++;
-                tempSpace.mine = true;
-                tempSpace.surronding = 99;
-            }
-            tempSpace.x = xaxis;
-            tempSpace.y = yaxis;
-            tempArray.push(tempSpace);
-          }
-          this.board.push(tempArray);
+    for( let xaxis = 0; xaxis < x; xaxis++){
+      let tempArray = [];
+      for(let yaxis = 0; yaxis < y; yaxis++){
+        let tempSpace = new space();
+        if(tempBombs !== bombs){
+            tempBombs++;
+            tempSpace.mine = true;
+            tempSpace.surronding = 99;
         }
-        this.shuffleMultiArray();
-        this.shuffleMultiArray();
-        this.shuffleMultiArray();
-        
-        this.board.forEach((column, x) => {
-          column.forEach((place,y) => {
-            this.board[x][y].x = x;
-            this.board[x][y].y = y;
-          });
-        });
+        tempSpace.x = xaxis;
+        tempSpace.y = yaxis;
+        tempArray.push(tempSpace);
+      }
+      this.board.push(tempArray);
+    }
+    this.shuffleMultiArray();
+    
+    this.board.forEach((column, x) => {
+      column.forEach((place,y) => {
+        this.board[x][y].x = x;
+        this.board[x][y].y = y;
+      });
+    });
   }
   public shuffleMultiArray() {
     for (let i = 0; i < this.board.length; i++) {
@@ -48,7 +46,7 @@ export class BoardService {
             this.board[i1][j1] = temp;
         }
     }
-}
+  }
   public click(space: space){
     for(let x = -1; x < 2; x++){
         for(let y = -1; y < 2; y++){
@@ -68,7 +66,7 @@ export class BoardService {
               
             } 
           }
-      }
+        }
     }
   }
 }

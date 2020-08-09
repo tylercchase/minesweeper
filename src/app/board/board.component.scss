@@ -9,9 +9,11 @@
     width: 2vw;
     display: grid;
     place-content: center;
+    border: 0.2px solid #000000;
+    box-sizing: border-box;
 }
 .unselected {
-    background: #989898;
+    background: #C4C4C4;
     cursor: pointer;
 
 }
@@ -25,5 +27,5 @@ img {
     height: 2vh;
 }
 .flag {
-    content: url("../../assets/flag.svg") !important;
+    background: red !important;
 }

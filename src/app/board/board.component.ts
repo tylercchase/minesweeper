@@ -30,6 +30,7 @@ export class BoardComponent implements OnInit {
     }
   }
   public showFlag(space: space){
+    console.log(space);
     space.flag = !space.flag;
     return false;
   }
@@ -40,7 +41,6 @@ export class BoardComponent implements OnInit {
     console.log(this.board.board);
   }
   public initBoard(){
-    this.board.board = [];
     this.board.initBoard(30,30,150);
   }
 }
