@@ -5,21 +5,23 @@
 }
 .row {
     border: black 0.2px solid;
-    height: 2vh;
-    width: 2vw;
+    height: 16px;
+    width: 16px;
     display: grid;
     place-content: center;
     border: 0.2px solid #000000;
     box-sizing: border-box;
+
 }
 .unselected {
-    background: #C4C4C4;
+    background: #BDBDBD;
+    background-position: 0 -39px;
     cursor: pointer;
 
 }
 .help {
-    width: 2vh;
-    height: 2vw;
+    width: 16px;
+    height: 16px;
     z-index: 100000000000;
 }
 img {
@@ -27,5 +29,8 @@ img {
     height: 2vh;
 }
 .flag {
-    background: red !important;
+    background: url("../../assets/flagsvg.svg") !important;
+}
+.mine {
+    background: url("../../assets/minea.svg");
 }
